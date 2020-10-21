@@ -80,7 +80,8 @@ pipeline {
 
     post {
         always {
-            junit allowEmptyResults: true, testResults: 'target/surefile-reports/*.xml, APITest/target/surefire-reports/*.xml'
+            junit allowEmptyResults: true, testResults: 'target/surefile-reports/*.xml, api-test/target/surefire-reports/*.xml'
         }
+       
     }
 }

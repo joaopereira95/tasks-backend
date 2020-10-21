@@ -51,21 +51,22 @@ pipeline {
                 }
             }
         }
-        stage ('Functional Test') {
+        /** stage ('Functional Test') {
             steps {
                 dir('functional-test') {
                     git credentialsId: 'github_login', url: 'https://github.com/joaopereira95/tasks-functional-tests.git'
                     sh 'mvn test'
                 }
             }
-        }
+       }
+       **/ 
         stage ('Deploy Prod') {
             steps {
                 sh 'docker-compose build'
                 sh 'docker-compose up -d'
             }
         }
-         stage ('Health Check') {
+        stage ('Health Check') {
             steps {
                 sleep(10)
                 dir('functional-test') {

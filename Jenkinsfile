@@ -77,4 +77,10 @@ pipeline {
         }
         **/
     }
+
+    post {
+        always {
+            junit allowEmptyResults: true, testResults: 'target/surefile-reports/*.xml, APITest/target/surefire-reports/*.xml'
+        }
+    }
 }
